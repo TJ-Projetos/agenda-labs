@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 		<meta charset="utf-8">
+
 <html>
 	{% load static %}
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="{% static 'agenda/css/bootstrap.min.css'  %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'agenda/css/bootstrap-grid.min.css'  %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'agenda/css/bootstrap-reboot.min.css'  %}">
@@ -16,48 +18,26 @@
 		<title>
 		{% block title%}  {% endblock %}
 		</title>
-		<style >
-html, body {
-    height: 100%;
-    
-
-}
-.container-fluid {
-    height: 100%;
-     height:auto !important;
-    overflow-y: hidden;/*  don't show content that exceeds my height */
-}
-
-
-
-		</style>
+		
 	</head>
 	<body>
-		<nav class="navbar sticky-top navbar-expand-lg  navbar-light bg-success ">
-				<ul class="navbar-nav mr-auto">
-			<div class="dropdown" >
-					<li class="nav-item dropdown">
-						<a  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img src="{% static 'agenda/icon/menu.svg'  %}">
-						</a>
-						<div class="dropdown-menu" style="background-color:#81C784" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="{%url 'agenda1'%}">Agenda</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="{%url 'mostrar_form'%}">Marcar Horário</a>
-						
-							
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Logout</a>
-						</div>
-					</li>
-					
-				</ul>
+		<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-success justify-content-center">
+			<ul class="navbar-nav mr-3">
 				
-
-			</div>
-				<ul class="navbar-nav mr-auto">
-					<h4>AGENDAMENTO DE LABORATÓRIOS - BLOCO 06</h4>
-					
+					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="{%url 'agenda1'%}">Agenda</a></button>
+				</ul>
+				<ul class="navbar-nav mr-3">
+					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="{%url 'mostrar_form'%}">Marcar Horário</a></button>
+				</ul>
+				<ul class="navbar-nav mr-3">
+					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="#">Logout</a></button>
+				
+			</ul>
+				<ul class="navbar-nav mr-9">
+					<div class='card-header 'style='border-radius: 7%;'>
+					<h5>AGENDAMENTO DE LABORATÓRIOS
+					BLOCO 06</h5>
+					</div>
 				</ul>
 				{% block extra %}
 				{% endblock %}
@@ -69,6 +49,14 @@ html, body {
 				{% endblock %}
 
 		<br>
+
+<footer style="background-color: #B9F6CA">
+		<center>
+			<small><p>  Desenvolvido por:  Jonas Lima de Araújo e Tânia Lobo Viana. <br> Acadêmicos do curso de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí.<br> Todos os direitos reservados. </p>
+				</small>
+
+</center>
+</footer>
 		</div>
 
 	</body>

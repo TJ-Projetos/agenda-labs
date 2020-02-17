@@ -4,21 +4,26 @@
 Inicio
 {%endblock%}
 {% block extra %}
-<ul class="navbar-nav mr-auto">
-  <form method="post">
-    {%csrf_token%}
-<div class="input-group sm-3">
-  <select class="btn btn-info mb-2" id="inputGroupSelect03" name="escolha">
-    <option  >{{local_default}}</option>
+<ul>
+  
+</ul>
+<ul class="navbar-nav mr-3">
+<div class="dropdown">
+  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{local_default}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+     
     {%for local in locais%}
-    <option value="{{local}}">{{local}}</option>
-    {%endfor%}
-  </select>
-  
-    <button class="btn btn-light mb-2" type="submit">Mudar</button>
-  
+    <form class="form-horizontal" method="POST" >
+                {% csrf_token %}
+                <input type="hidden" class="form-control" name="escolha" value="{{local}}">
+                <button  class="dropdown-item btn btn-outline-success " type="submit">{{local}}</button>
+              </form>
+      {%endfor%}
+  </div>
 </div>
-</form>
+  
 </ul>
 <!-- <ul class="navbar-nav mr-md-1">
   <li class="nav-item dropdown">
@@ -39,7 +44,31 @@ Inicio
 {%endblock%}
 {%block content%}
 <center>
-<table class="tg" style="undefined;table-layout: fixed; width: 1072px">
+<!--   <form  method="post">
+    {%csrf_token%}
+<div class=" input-group sm-3">
+  <select class="btn btn-info mb-2 form-control" name="escolha">
+    <option  >{{local_default}}</option>
+    {%for local in locais%}
+    <option value="{{local}}">{{local}}</option>
+    {%endfor%}
+  </select>
+  
+    <button class="btn btn-light mb-2" type="submit">Mudar</button>
+  
+</div>
+</form>
+ -->
+
+
+<p>
+  </p>
+
+
+
+
+
+<table class="table tg" >
 <colgroup>
 <col style="width: 117px">
 <col style="width: 191px">
