@@ -47,3 +47,5 @@ def agenda1(request):
 		return render(request,'agenda/agendalabs_tabela.html',{'estrutura':estrutura,'dias':dias,
 			'turno':turno,'locais':locais,'local_default':local_default})
 
+def login(request):
+	return render(request,'usuario/usr.html')

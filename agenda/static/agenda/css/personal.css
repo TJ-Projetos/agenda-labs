@@ -1,5 +1,17 @@
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+     height:auto !important;
+    /*  don't show content that exceeds my height */
+    
 
-body {font-family: Arial, Helvetica, sans-serif;}
+}
+.container-fluid {
+    height: 100%;
+     height:auto !important;
+    overflow-y: hidden;/*  don't show content that exceeds my height */
+}
+
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -122,15 +134,3 @@ span.psw {
 .tg .tg-uq3h{background-color:#b2ebf2;border-color:#A5D6A7;text-align:center;vertical-align:middle}
 .tg .tg-alhi{background-color:#80deea;border-color:#A5D6A7;text-align:center;vertical-align:middle}
 .tg .tg-ribb{background-color:#fff;border-color:#A5D6A7;text-align:left;vertical-align:middle}
-html, body {
-    height: 100%;
-     height:auto !important;
-    /*  don't show content that exceeds my height */
-    
-
-}
-.container-fluid {
-    height: 100%;
-     height:auto !important;
-    overflow-y: hidden;/*  don't show content that exceeds my height */
-}
