@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from .forms import *
 from .entidades.agenda import *
@@ -48,4 +49,10 @@ def agenda1(request):
 			'turno':turno,'locais':locais,'local_default':local_default})
 
 def login(request):
-	return render(request,'usuario/usr.html')
+	form_usuario=UserCreationForm()
+	if request.method == "POST":
+		form_usuario = UserCreationForm(request.POST)
+		if form_usuario.is_valid():
+			form_usuario.save()
+
+	return render(request,'usuario/usr.html',{"usuario":form_usuario})

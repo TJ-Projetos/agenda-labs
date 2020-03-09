@@ -21,11 +21,13 @@ class Dia(models.Model):
 	def __str__(self):
 		return self.dia_semana
 
+
 class Local(models.Model):
 	nome = models.CharField(max_length = 120, null=False, blank=False)
 	def __str__(self):
 		return self.nome
-	
+
+
 class Agenda(models.Model): #relacionamento 1 para muitos (um usuario pode fazer varios agendamentos, 
 # em varios horarios e em varios turnos)
 	solicitante= models.CharField(max_length = 120, null=False, blank=False)

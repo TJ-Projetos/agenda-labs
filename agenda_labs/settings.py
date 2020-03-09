@@ -25,7 +25,7 @@ SECRET_KEY = 'j^ewck%+jl42ahotwigkj2&jgziekdg3qzkz3!m-+@k&0o-m62'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.5.176.142","127.0.0.1"]
+ALLOWED_HOSTS = ["10.5.176.142","127.0.0.1","localhost"]
 
 
 # Application definition
@@ -51,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'agenda_labs.urls'
-
+LOGIN_URL = 'login'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -75,17 +75,17 @@ WSGI_APPLICATION = 'agenda_labs.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'laboratorios',
-        'USER':'root',
-        'PASSWORD':'root',
-        'HOST':'localhost',
-        'PORT':'3306'
+# 'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'laboratorios',
+#         'USER':'root',
+#         'PASSWORD':'root',
+#         'HOST':'localhost',
+#         'PORT':'3306'
 
 
     }
@@ -116,12 +116,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-TIME_ZONE = 'America/Chicago'
-LANGUAGE_CODE = 'pt-BR'
+TIME_ZONE = 'America/Belem'
+LANGUAGE_CODE = 'pt-br'
 
-USE_I18N = False
+USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = True
 
