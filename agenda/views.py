@@ -1,3 +1,7 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from .forms import *
@@ -51,15 +55,32 @@ def mostrar_agenda(request):
 		return render(request,'agenda/agendalabs_tabela.html',{'estrutura':estrutura,'dias':dias,
 			'turno':turno,'locais':locais,'local_default':local_default})
 
-def login(request):
-	erro_cad=""
+def cadastar_usuario(request):
+	sucesso=""
+	mensagem=""
 	form_usuario=UserCreationForm()
 	if request.method == "POST":
 		form_usuario = UserCreationForm(request.POST)
 		if form_usuario.is_valid():
 			form_usuario.save()
 		else:
-			print("erro")
-			erro_cad="um erro"
-			return redirect('login')
-	return render(request,'usuario/usr.html',{"usuario":form_usuario,"erro_cad":erro_cad})
+			 mensagem=form_usuario.errors
+	return render(request,'usuario/usr.html',{"usuario":form_usuario,"erro_cad":erro_cad,"mensagem":mensagem,"sucesso":sucesso})
+
+
+def login(request):
+	sucesso=""
+	mensagem=""
+	form_usuario=UserCreationForm()
+	if request.method == "POST":
+		form_usuario = UserCreationForm(request.POST)
+		if form_usuario.is_valid():
+			form_usuario.save()
+		else:
+			 mensagem=form_usuario.errors
+	return render(request,'usuario/usr.html',{"usuario":form_usuario,"mensagem":mensagem,"sucesso":sucesso})
+
+
+def deslogar(request):
+	logout(request)
+	return redirect('login')

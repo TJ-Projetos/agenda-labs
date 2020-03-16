@@ -137,9 +137,8 @@
 			// modal.style.display = "none";
 			// }
 			// }
-			$(document).ready(function() {
-			$("#link2").click();
-			})
+			
+
 			</script>
 		<div class="container-fluid" style="background-color: #B9F6CA;" >
 			<div class="container">
@@ -155,7 +154,7 @@
 					<div class="col">
 						<center>
 						<h2> Cadastrar </h2>
-						<a id="link2" onClick="document.getElementById('id02').style.display='block'" >
+						<a onClick="document.getElementById('id02').style.display='block'" >
 							<img src="{%static 'agenda/icon/user-plus.svg'%}">
 						</a>
 						</center>
@@ -166,53 +165,41 @@
 
 			</div>
 
-			<div id="id02" class="modal">
-				{%if sucesso%}
-				Usuario Cadastrado com Sucesso
-				<button type="submit"> ok </button>
-
-				{%else%}
-				<form class="modal-content animate" method="post">
-					 {%csrf_token%}
-
+			<!-- LOGAR O SISTEMA -->
+			<div id="id01" class="modal">
+				<form class="modal-content animate" action="/action_page.php" method="post">
 					<div class="imgcontainer">
-						
+						<span onClick="document.getElementById('id01').style.display='none'" class="close"
+						title="Close Modal">&times;</span>
 						<img src="{%static 'agenda/icon/user-circle.svg'%}" alt="Avatar" class="avatar">
 					</div>
 					<div class="container">
-						
 						<label for="uname"><b>Nome de Usuário</b></label>
-						{{ usuario.username.erros }}
-						{{usuario.username}}
-
+						<input type="text" placeholder="Digite seu nome de usuário" name="uname" required>
 						<label for="psw"><b>Senha</b></label>
-						{{ usuario.password1.erros }}
-						{{usuario.password1}}
-						<label for="psw"><b>Repita a Senha</b></label>
-						{{ usuario.password2.erros }}
-						{{usuario.password2}}
-							 {%if mensagem%}
-				
+						<input type="password" placeholder="Digite sua senha" name="psw" required>
+						 {%if mensagem%}
 			<div class="alert alert-danger">
 				{% for key, value in mensagem.items%}
-				{{ value }}
+				{{ value }
 				{%endfor%}
 			</div>
 			{%endif%}
-
-						<button type="submit"> Cadastrar </button>
+						
+						<button type="submit"> Fazer o Login </button>
+						<label>
+							<input type="checkbox" checked="checked" name="remember"> Manter-me conectado
+						</label>
 					</div>
 					<div class="container" style="background-color:#f1f1f1">
-						
-
+						<button type="button" onClick="document.getElementById('id01').style.display='none'"
+						class="cancelbtn">Cancelar</button>
+						<span class="psw">Esqueceu  <a href="#">a senha?</a></span>
 					</div>
 				</form>
-				{%endif%}
 			</div>
-	
-		
-		</div>
 
 		
+		</div>
 	</body>
 </html>
