@@ -19,23 +19,27 @@ pagina ver agenda
   <div class="card-body text-white bg-success">
     <form method="post">
       {%csrf_token%}
+
       <label> Professor: </label>
       {{formulario.solicitante|addclass:'form-control'}}
+      {{formulario.solicitante.erros}}
       <br>
       <label> Local: </label>
-      
       {{formulario.local_solicitado|addclass:'form-control'}}
+      {{formulario.local_solicitado.erros}}
       <br>
 
 
       <div class="form-group" >
       <label> Dia da Semana: </label>
       {{formulario.dia_semana|addclass:'form-control'}}
+      {{formulario.dia_semana.erros}}
       </div>
 
       <div class="form-group">
       <label> Horarios: </label>
       {{formulario.aulas|addclass:'form-control'}}
+      {{formulario.aulas.erros}}
       </div>
 
       <label> Observações: </label>

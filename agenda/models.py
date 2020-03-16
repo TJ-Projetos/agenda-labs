@@ -4,6 +4,9 @@ from django.db import models
 
 
 class Horarios(models.Model):
+	class Meta:
+		verbose_name="Horario"
+		verbose_name_plural="Horarios"
 	
 	# STATUS_CHOICES = (
 	# 	("1", "Livre"),
@@ -23,6 +26,8 @@ class Dia(models.Model):
 
 
 class Local(models.Model):
+	class Meta:
+		verbose_name_plural="Locais"
 	nome = models.CharField(max_length = 120, null=False, blank=False)
 	def __str__(self):
 		return self.nome
@@ -35,3 +40,5 @@ class Agenda(models.Model): #relacionamento 1 para muitos (um usuario pode fazer
 	dias=models.ForeignKey("Dia", on_delete=models.CASCADE)
 	aulas=models.ManyToManyField(Horarios)
 	observacoes= models.CharField(max_length = 150, null=True, blank=True)
+	def __str__(self):
+		return self.solicitante

@@ -6,7 +6,7 @@ from .services import agenda_services
 # Create your views here.
 
 
-def mostrar_form(request):
+def agendar(request):
 	mensagens=""
 	if request.method =="POST":
 		formulario = FormAgenda(request.POST)
@@ -21,16 +21,19 @@ def mostrar_form(request):
 			mensagens=agenda_services.verificar(nova_agenda)
 			if(not mensagens):
 				agenda_services.salvar_agenda(nova_agenda)
-				return redirect('agenda1')
+				return redirect('mostrar_agenda')
 			else:
+				#return redirect('agendar')
 				return render(request, 'agenda/pagina_cadastro.html',{"formulario":formulario,'mensagens':mensagens})
-			
+		else:
+			return render(request, 'agenda/pagina_cadastro.html',{"formulario":formulario,'mensagens':mensagens})
+
 	formulario = FormAgenda()
 	return render(request, 'agenda/pagina_cadastro.html',{"formulario":formulario,'mensagens':mensagens})
 
 
 
-def agenda1(request):
+def mostrar_agenda(request):
 	# agenda_services.salvar_dados()
 	horarios=agenda_services.retornar_horarios()
 	estrutura=agenda_services.retornar_agenda()
@@ -49,10 +52,14 @@ def agenda1(request):
 			'turno':turno,'locais':locais,'local_default':local_default})
 
 def login(request):
+	erro_cad=""
 	form_usuario=UserCreationForm()
 	if request.method == "POST":
 		form_usuario = UserCreationForm(request.POST)
 		if form_usuario.is_valid():
 			form_usuario.save()
-
-	return render(request,'usuario/usr.html',{"usuario":form_usuario})
+		else:
+			print("erro")
+			erro_cad="um erro"
+			return redirect('login')
+	return render(request,'usuario/usr.html',{"usuario":form_usuario,"erro_cad":erro_cad})

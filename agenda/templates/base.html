@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-		<meta charset="utf-8">
-
+<meta charset="utf-8">
 <html>
 	{% load static %}
 	<head>
@@ -21,43 +20,44 @@
 	<body>
 		<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-success justify-content-center">
 			<ul class="navbar-nav mr-3">
-				
-					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="{%url 'agenda1'%}">Agenda</a></button>
-				</ul>
-				<ul class="navbar-nav mr-3">
-					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="{%url 'mostrar_form'%}">Marcar Horário</a></button>
-				</ul>
-				<ul class="navbar-nav mr-3">
-					<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="#">Logout</a></button>
+				<button class="btn btn-light mb-2" type="submit">
+				<a class="dropdown-item" href="{%url 'mostrar_agenda'%}">
+					Agenda
+				</a>
+				</button>
+			</ul>
+			<ul class="navbar-nav mr-3">
+				<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="{%url 'agendar'%}">Marcar Horário</a></button>
+			</ul>
+			<ul class="navbar-nav mr-3">
+				<button class="btn btn-light mb-2" type="submit"><a class="dropdown-item" href="#">Logout</a></button>
 				
 			</ul>
-				<ul class="navbar-nav mr-9">
-					<div class='card-header 'style='border-radius: 7%;'>
-					<h5>AGENDAMENTO DE LABORATÓRIOS
-					BLOCO 06</h5>
-					</div>
-				</ul>
-				{% block extra %}
-				{% endblock %}
+			<ul class="navbar-nav mr-auto">
+				<div class='card-header 'style='border-radius: 7%;'>
+					<h6>AGENDAMENTO DE LABORATÓRIOS
+					BLOCO 06</h6>
+				</div>
+			</ul>
+			{% block extra %}
+			{% endblock %}
+			
 			
 		</nav>
-		<div class="container-fluid " style="background-color: #41E784">
 		
-				{% block content %}
-				{% endblock %}
-
-		<br>
-
-<footer style="background-color: #B9F6CA">
+		<div class="container-fluid " style="background-color: #41E784">
+			
+			{% block content %}
+			{% endblock %}
+			<br>
+			<footer style="background-color: #B9F6CA">
 				
-		<center>
-			<small>
+				<center>
+				<small>
 				<p>  Desenvolvido por:  Jonas Lima de Araújo e Tânia Lobo Viana. <br> Acadêmicos do curso de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí.<br> Todos os direitos reservados. </p>
 				</small>
-
-</center>
-</footer>
+				</center>
+			</footer>
 		</div>
-
 	</body>
 </html>
